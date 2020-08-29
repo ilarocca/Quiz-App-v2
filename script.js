@@ -119,7 +119,7 @@ const store = {
     if(store.correct === true) {
          resultHtml = `<p>Congrats, "${store.questions[store.questionNumber].correctAnswer}" is correct!</p>`
     } else {
-         resultHtml = `<p>Sorry, "${store.chosenAnswer}" is not correct. The correct answer is "${store.questions[store.questionNumber].correctAnswer}"</p>`
+         resultHtml = `<p>Sorry, "${store.chosenAnswer}" is not correct. The correct answer is "${store.questions[store.questionNumber].correctAnswer}."</p>`
     }
     // + 1 to compensate for the way arrays read length
     if(store.questionNumber + 1 === store.questions.length) {
@@ -180,7 +180,9 @@ const store = {
   function checkCorrectAnswer() {
       let chosenAnswer = $('input[name=options]:checked').val();
       let currentCorrectAnswer = store.questions[store.questionNumber].correctAnswer 
-      if(chosenAnswer === currentCorrectAnswer) {
+    if(chosenAnswer === undefined) {
+        alert("Please Select An Answer");
+    } else if(chosenAnswer === currentCorrectAnswer) {
           store.submitAnswer = true;
           store.correct = true;
           store.score++;
@@ -218,8 +220,6 @@ const store = {
     store.chosenAnswer = '';
   }
 
-  // This function conditionally replaces the contents of the <main> tag based on the state of the store
-  
   /********** EVENT HANDLER FUNCTIONS **********/
   // These functions handle events (submit, click, etc)
   function handleStartQuiz() {
