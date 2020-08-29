@@ -3,8 +3,6 @@
     box-sizing: border-box;
   }
   body {
-  /* background-image: url(imgs/soundwaves.jpg);
-  background-size: cover; */
   background-color: grey;
   color: black;
   background-image: url("imgs/soundwaves.jpg");
@@ -15,7 +13,7 @@
   }
   
   header {
-  padding: 55 0 0 0;
+  padding: 55px 0px 0px 0px;
   }
   
   h1 {
